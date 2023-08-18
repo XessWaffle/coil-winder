@@ -33,7 +33,7 @@ void recalibrate_router();
 
 router_state_e get_router_state();
 
-
+uint16_t get_max_step_location();
 
 
 #endif

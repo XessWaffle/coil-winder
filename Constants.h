@@ -7,5 +7,9 @@
 #define STEPS_PER_REVOLUTION 2038
 
 #define MAX_SPEED 60
+#define MAX_STEPS_PER_SECOND 800
+
+#define DISTANCE 78.345
+#define CIRCUMFERENCE PI * 10
 
 #endif

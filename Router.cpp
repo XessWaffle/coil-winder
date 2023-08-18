@@ -122,3 +122,8 @@ router_state_e get_router_state()
 {
     return glbl_router.router_state;
 }
+
+uint16_t get_max_step_location()
+{
+    return glbl_router.max_step_location;
+}
