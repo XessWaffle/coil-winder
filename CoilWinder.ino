@@ -1,3 +1,5 @@
+#include "Constants.h"
+
 #include "Router.h"
 #include "Winder.h"
 
@@ -8,7 +10,7 @@ coil_s *coil;
 void setup() {
   router_initialize();
   winder_initialize();
-  set_winder_speed(800);
+  set_winder_speed(MAX_STEPS_PER_SECOND);
 
   coil = create_coil(200, 26, 20);
 
@@ -16,13 +18,14 @@ void setup() {
 
 void loop() {
 
-  static bool winder_prepping = false, winder_ready = false;
-  if(get_router_state() == ROUTER_DONE)
+  static bool winder_prepping = false, winder_ready = false, coil_done = false;
+  if(get_router_state() == ROUTER_DONE && !coil_done)
   {
     if(get_winder_state() == WINDER_DONE && winder_ready)
     {
       winder_prepping = false;
       winder_ready = false;
+      coil_done = true;
     }
 
     if(winder_ready)
