@@ -35,5 +35,7 @@ router_state_e get_router_state();
 
 uint16_t get_max_step_location();
 
+bool is_router_calibrated();
+
 
 #endif

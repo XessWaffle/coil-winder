@@ -4,12 +4,12 @@
 #include <Arduino.h>
 
 
-float convert_steps_to_mm(uint16_t steps);
+float convert_steps_to_mm(uint16_t steps)
 {
     return (float) steps / get_max_step_location() * DISTANCE;
 }
 
-uint16_t convert_mm_to_steps(float mm);
+uint16_t convert_mm_to_steps(float mm)
 {
     return (uint16_t) (mm / DISTANCE * get_max_step_location());
 }
@@ -25,4 +25,9 @@ uint16_t calculate_router_speed(coil_s* coil)
     uint16_t steps = convert_mm_to_steps(diameter); // STEPS_PER_REVOLUTION : steps
 
     return (float) steps/STEPS_PER_REVOLUTION * MAX_STEPS_PER_SECOND;
+}
+
+uint32_t calculate_winder_step_rotations(coil_s* coil)
+{
+    return coil->loops * STEPS_PER_REVOLUTION;
 }

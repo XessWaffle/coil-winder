@@ -11,4 +11,6 @@ float calculate_wire_diameter(coil_s* coil);
 
 uint16_t calculate_router_speed(coil_s* coil);
 
+uint32_t calculate_winder_step_rotations(coil_s* coil);
+
 #endif

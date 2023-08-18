@@ -127,3 +127,8 @@ uint16_t get_max_step_location()
 {
     return glbl_router.max_step_location;
 }
+
+bool is_router_calibrated()
+{
+    return glbl_router.router_state != ROUTER_CALIBRATING && glbl_router.max_step_location != 0;
+}
